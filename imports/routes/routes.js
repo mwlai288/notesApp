@@ -40,8 +40,8 @@ export const routes = (
           return Meteor.userId() ? <Redirect to="/dashboard" /> : <Signup />;
         }}
       />
-      <Route path="/dashboard" component={Dashboard} />
       <Route path="/dashboard/:id" component={Dashboard} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="*" component={NotFound} />
     </Switch>
   </Router>
