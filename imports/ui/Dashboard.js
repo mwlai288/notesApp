@@ -1,13 +1,13 @@
 import React from 'react';
 import PrivateHeader from './PrivateHeader';
 import { PageContent } from '../styles/Styles';
-
+import NoteList from './NoteList';
 const Links = () => {
   return (
     <div>
       <PrivateHeader title="Boilerplate Stuff" />
       <PageContent>
-        <div>STUFF GOES HERE</div>
+        <NoteList />
       </PageContent>
     </div>
   );

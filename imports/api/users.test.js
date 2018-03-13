@@ -1,32 +1,35 @@
+import { Meteor } from 'meteor/meteor';
 import expect from 'expect';
 
-const add = (a, b) => {
-  if (typeof b !== 'number') {
-    return a + a;
-  }
-  return a + b;
-};
+import { validateNewUser } from './users';
 
-const square = (a) => a * a;
+if (Meteor.isServer) {
+  describe('users', function() {
+    it('should allow valid email address', function() {
+      const testUser = {
+        emails: [
+          {
+            address: 'Test@example.com'
+          }
+        ]
+      };
+      const res = validateNewUser(testUser);
 
-describe('add', function() {
-  it('should add two numbers', function() {
-    const total = add(4, 2);
+      expect(res).toBe(true);
+    });
 
-    expect(total).toBe(6);
+    it('should reject invalid email', function() {
+      const testUser = {
+        emails: [
+          {
+            address: 'Testxampom'
+          }
+        ]
+      };
+      expect(() => {
+        validateNewUser(testUser);
+      }).toThrow();
+    });
   });
+}
 
-  it('should double a single number', function() {
-    const res = add(44);
-
-    expect(res).toBe(88);
-  });
-});
-
-describe('square', function() {
-  it('should square a number', function() {
-    const squared = square(4);
-
-    expect(squared).toBe(16);
-  });
-});

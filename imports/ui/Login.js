@@ -7,6 +7,7 @@ import {
   ButtonStyle,
   FormView
 } from '../styles/Styles';
+import { withTracker } from 'meteor/react-meteor-data';
 
 class Login extends Component {
   state = {
@@ -18,7 +19,7 @@ class Login extends Component {
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
 
-    Meteor.loginWithPassword({ email }, password, (err) => {
+    this.props.loginWithPassword({ email }, password, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -31,7 +32,7 @@ class Login extends Component {
     return (
       <BackgroundStyle>
         <BoxView>
-          <h1>BOILERPLATE STUFF</h1>
+          <h1>Login</h1>
           {this.state.error ? <p>{this.state.error}</p> : null}
 
           <FormView onSubmit={this.onSubmit} noValidate>
@@ -47,4 +48,8 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withTracker(() => {
+  return {
+    loginWithPassword: Meteor.loginWithPassword
+  };
+})(Login);

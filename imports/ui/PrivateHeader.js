@@ -1,8 +1,9 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Header, LogoutButton, Title } from '../styles/Styles';
+import { withTracker } from 'meteor/react-meteor-data';
 
-const PrivateHeader = ({ title }) => {
+export const PrivateHeader = ({ title }) => {
   logOut = () => {
     Accounts.logout();
   };
@@ -15,4 +16,8 @@ const PrivateHeader = ({ title }) => {
   );
 };
 
-export default PrivateHeader;
+export default withTracker(() => {
+  return {
+    logOut: () => Accounts.logout()
+  };
+})(PrivateHeader);
