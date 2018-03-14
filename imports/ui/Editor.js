@@ -3,37 +3,62 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session';
 import { Notes } from '../api/notes';
 import { Meteor } from 'meteor/meteor';
+import { Redirect } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 
 class Editor extends Component {
-  handleBodyChange = (e) => {
-    e.preventDefault();
-    this.props.call('updateNotes', this.props.note._id, {
-      body: e.target.value
-    });
+  state = {
+    title: '',
+    body: ''
   };
 
   handleTitleChange = (e) => {
-    e.preventDefault();
+    const title = e.target.value;
+    this.setState({ title });
     this.props.call('updateNotes', this.props.note._id, {
-      title: e.target.value
+      title
     });
   };
+  handleBodyChange = (e) => {
+    const body = e.target.value;
+    this.setState({ body });
+    this.props.call('updateNotes', this.props.note._id, { body });
+  };
+
+  handleDelete = () => {
+    this.props.call('deleteNotes', this.props.note._id);
+    // window.location.reload();
+    const history = createHistory();
+    history.replace('/dashboard');
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const currentNoteId = this.props.note ? this.props.note._id : undefined;
+    const prevNoteId = prevProps.note ? prevProps.note._id : undefined;
+
+    if (currentNoteId && currentNoteId !== prevNoteId) {
+      this.setState({
+        title: this.props.note.title,
+        body: this.props.note.body
+      });
+    }
+  }
 
   render() {
     if (this.props.note) {
       return (
         <div>
           <input
-            value={this.props.note.title}
+            value={this.state.title}
             placeholder="Untitled Note"
             onChange={this.handleTitleChange}
           />
           <textarea
-            value={this.props.note.body}
+            value={this.state.body}
             placeholder="Your note here"
             onChange={this.handleBodyChange}
           />
-          <button>Delete Note</button>
+          <button onClick={this.handleDelete}>Delete Note</button>
         </div>
       );
     } else {
