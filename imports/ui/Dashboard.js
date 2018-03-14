@@ -8,6 +8,13 @@ class Dashboard extends Component {
   componentWillMount() {
     Session.set('selectedNoteId', this.props.match.params.id);
   }
+
+  componentWillUpdate() {
+    if (!Meteor.userId()) {
+      History.replace('/');
+    }
+  }
+
   render() {
     return (
       <div>
