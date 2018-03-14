@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PrivateHeader from './PrivateHeader';
 import { PageContent } from '../styles/Styles';
 import NoteList from './NoteList';
+import Editor from './Editor';
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -13,6 +14,7 @@ class Dashboard extends Component {
         <PrivateHeader title="Boilerplate Stuff" />
         <PageContent>
           <NoteList />
+          <Editor />
         </PageContent>
       </div>
     );
