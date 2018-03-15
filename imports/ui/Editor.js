@@ -5,7 +5,13 @@ import { Notes } from '../api/notes';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-import { EditorStyle } from '../styles/Styles';
+import {
+  ButtonStyle,
+  EditorStyle,
+  EditorStyleBody,
+  EditorStyleTitle,
+  EditorStyleMessage
+} from '../styles/Styles';
 
 class Editor extends Component {
   state = {
@@ -49,28 +55,26 @@ class Editor extends Component {
     if (this.props.note) {
       return (
         <EditorStyle>
-          <input
+          <EditorStyleTitle
             value={this.state.title}
             placeholder="Untitled Note"
             onChange={this.handleTitleChange}
           />
-          <textarea
+          <EditorStyleBody
             value={this.state.body}
             placeholder="Your note here"
             onChange={this.handleBodyChange}
           />
-          <button onClick={this.handleDelete}>Delete Note</button>
+          <ButtonStyle onClick={this.handleDelete}>Delete Note</ButtonStyle>
         </EditorStyle>
       );
     } else {
       return (
-        <EditorStyle>
-          <p>
-            {this.props.selectedNoteId
-              ? 'Note not found.'
-              : 'Pick or Create a note.'}
-          </p>
-        </EditorStyle>
+        <EditorStyleMessage>
+          {this.props.selectedNoteId
+            ? 'Note not found.'
+            : 'Pick or Create a note.'}
+        </EditorStyleMessage>
       );
     }
   }

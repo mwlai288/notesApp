@@ -9,24 +9,6 @@ export const BackgroundStyle = styled.div`
   width: 100vw;
 `;
 
-export const BoxLink = styled.div`
-  background: #f9f9f9;
-  border: #a9a9a9 solid 0.2px;
-  margin: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
-`;
-
-export const BoxWarning = styled.div`
-  background: #f9f9f9;
-  border: #a9a9a9 solid 0.2px;
-  color: #777777;
-  font-style: italic;
-  margin: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  text-align: center;
-`;
 export const BoxView = styled.div`
   background-color: white;
   border: 1px solid #777777;
@@ -45,35 +27,54 @@ export const ButtonStyle = styled.button`
   padding: 1rem;
   text-transform: uppercase;
 `;
-export const CancelButton = styled.button`
-  background: #777777;
-  border: 1px solid #800000;
-  color: white;
-  padding: 0.2rem 0.5rem;
-  text-transform: uppercase;
-`;
-
-export const CheckBox = styled.label`
-  display: block;
-  margin-bottom: 1.2rem;
-`;
 
 export const ContentMain = styled.div`
   display: flex;
   width: calc(100rem - 30rem);
 `;
+
 export const ContentSideBar = styled.div`
   display: flex;
+  padding-right: 2.8rem;
   width: 30rem;
-`;
-export const CheckBoxInput = styled.input`
-  margin-right: 0.7rem;
 `;
 
 export const EditorStyle = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  border: 1px solid grey;
+  padding: 2.8rem;
   width: 100%;
+`;
+export const EditorStyleBody = styled.textarea`
+  flex-grow: 1;
+  font-weight: 300;
+  margin-bottom: 2.8rem;
+  outline: none;
+  padding: 1.4rem;
+  resize: none;
+`;
+
+export const EditorStyleMessage = styled.p`
+  border: 1px solid grey;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  font-style: italic;
+  margin: 2.8rem;
+  outline: none;
+  padding: 2.8rem;
+  text-align: center;
+  width: 100%;
+`;
+
+export const EditorStyleTitle = styled.input`
+  border: none;
+  border-bottom: 2px solid grey;
+  font-size: 2.2rem;
+  margin-bottom: 2.8rem;
+  outline: none;
+  padding: 1rem;
 `;
 
 export const FormView = styled.form`
@@ -82,7 +83,7 @@ export const FormView = styled.form`
 `;
 
 export const Header = styled.div`
-  background: #800000;
+  background: #397ab1;
   color: white;
   display: flex;
   height: 6rem;
@@ -107,7 +108,7 @@ export const PageContent = styled.div`
   height: calc(100vh - 6rem);
   margin: 0 auto;
   max-width: 100rem;
-  padding: 1.4rem;
+  padding: 1.4rem 2.8rem;
 `;
 export const PillButton = styled.button`
   background-color: transparent;

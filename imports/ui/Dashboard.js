@@ -18,7 +18,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <PrivateHeader title="Boilerplate Stuff" />
+        <PrivateHeader title="Notes" />
 
         <PageContent>
           <ContentSideBar>
