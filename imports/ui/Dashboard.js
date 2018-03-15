@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PrivateHeader from './PrivateHeader';
-import { PageContent } from '../styles/Styles';
+import { PageContent, ContentSideBar, ContentMain } from '../styles/Styles';
 import NoteList from './NoteList';
 import Editor from './Editor';
 
@@ -19,9 +19,15 @@ class Dashboard extends Component {
     return (
       <div>
         <PrivateHeader title="Boilerplate Stuff" />
+
         <PageContent>
-          <NoteList />
-          <Editor />
+          <ContentSideBar>
+            <NoteList />
+          </ContentSideBar>
+
+          <ContentMain>
+            <Editor />
+          </ContentMain>
         </PageContent>
       </div>
     );

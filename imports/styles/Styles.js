@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-// Login and Signup Page
-
 export const BackgroundStyle = styled.div`
   align-items: center;
-  background: #dddddd;
+  background: #fafafa;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -31,12 +29,13 @@ export const BoxWarning = styled.div`
 `;
 export const BoxView = styled.div`
   background-color: white;
+  border: 1px solid #777777;
   padding: 2.4rem;
   text-align: center;
   width: 24rem;
 `;
 export const ButtonStyle = styled.button`
-  background-color: #800000;
+  background-color: #397ab1;
   border: none;
   color: white;
   cursor: pointer;
@@ -59,8 +58,22 @@ export const CheckBox = styled.label`
   margin-bottom: 1.2rem;
 `;
 
+export const ContentMain = styled.div`
+  display: flex;
+  width: calc(100rem - 30rem);
+`;
+export const ContentSideBar = styled.div`
+  display: flex;
+  width: 30rem;
+`;
 export const CheckBoxInput = styled.input`
   margin-right: 0.7rem;
+`;
+
+export const EditorStyle = styled.div`
+  background-color: white;
+  border: 1px solid grey;
+  width: 100%;
 `;
 
 export const FormView = styled.form`
@@ -72,11 +85,13 @@ export const Header = styled.div`
   background: #800000;
   color: white;
   display: flex;
+  height: 6rem;
   justify-content: space-around;
   margin: 0 auto;
   max-width: 100vw;
   padding: 1.4rem;
 `;
+
 export const LogoutButton = styled.button`
   background: none;
   border: none;
@@ -88,8 +103,10 @@ export const LogoutButton = styled.button`
 `;
 
 export const PageContent = styled.div`
+  display: flex;
+  height: calc(100vh - 6rem);
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 100rem;
   padding: 1.4rem;
 `;
 export const PillButton = styled.button`
@@ -100,6 +117,13 @@ export const PillButton = styled.button`
   font-size: 1.6rem;
   margin: 0 0.5rem 0 0;
   padding: 0.3rem 0.8rem;
+`;
+
+export const NoteListStyle = styled.div`
+  background-color: white;
+  border: 1px solid grey;
+  overflow-y: scroll;
+  width: 100%;
 `;
 
 export const UrlData = styled.p`
